@@ -36,7 +36,10 @@ kotlin {
 compose.desktop {
     application {
         mainClass = "com.ltaief.MainKt"
-
+        buildTypes.release.proguard {
+            version.set("7.6.1")
+            configurationFiles.from("proguard.pro")
+        }
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "JsonFormatter"
